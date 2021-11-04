@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import { StoreProvider } from './utils/Store';
+import { StoreProvider } from './../utils/Store';
 import { useEffect } from 'react';
 import { SnackbarProvider } from 'notistack';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';

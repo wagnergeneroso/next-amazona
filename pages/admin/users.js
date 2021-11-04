@@ -19,10 +19,10 @@ import {
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import { getError } from '../utils/error';
-import { Store } from '../utils/Store';
+import { getError } from '../../utils/error';
+import { Store } from '../../utils/Store';
 import Layout from '../components/Layout';
-import useStyles from '../utils/styles';
+import useStyles from '../../utils/styles';
 import { useSnackbar } from 'notistack';
 
 function reducer(state, action) {

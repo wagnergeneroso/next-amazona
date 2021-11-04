@@ -17,15 +17,15 @@ import {
 import dynamic from 'next/dynamic';
 import React, { useContext, useEffect, useState } from 'react';
 import Layout from './components/Layout';
-import { Store } from './utils/Store';
+import { Store } from './../utils/Store';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import useStyles from './utils/styles';
+import useStyles from './../utils/styles';
 import { useSnackbar } from 'notistack';
 import CheckoutWizard from './components/checkoutWizard';
-import { getError } from './utils/error';
+import { getError } from './../utils/error';
 import Cookies from 'js-cookie';
 
 function PlaceOrder() {
@@ -138,7 +138,7 @@ function PlaceOrder() {
                     </TableHead>
                     <TableBody>
                       {cartItems.map((item) => (
-                        <TableRow ley={item._id}>
+                        <TableRow key={item._id}>
                           <TableCell>
                             <NextLink href={`/product/${item.slug}`} passHref>
                               <Link>

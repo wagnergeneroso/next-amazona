@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import { Store } from '../../utils/Store';
+import { Store } from '../../../utils/Store';
 import Layout from '../../components/Layout';
-import useStyles from '../../utils/styles';
+import useStyles from '../../../utils/styles';
 import NextLink from 'next/link';
-import { getError } from '../../utils/error';
+import { getError } from '../../../utils/error';
 import axios from 'axios';
 import { Controller, useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';

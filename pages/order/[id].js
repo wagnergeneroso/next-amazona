@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useReducer, useState } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout';
-import { Store } from '../utils/Store';
+import { Store } from '../../utils/Store';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import {
@@ -22,10 +22,10 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import useStyles from '../utils/styles';
+import useStyles from '../../utils/styles';
 import CheckoutWizard from '../components/checkoutWizard';
 import { useSnackbar } from 'notistack';
-import { getError } from '../utils/error';
+import { getError } from '../../utils/error';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 
 function reducer(state, action) {
@@ -69,7 +69,6 @@ function Order({ params }) {
   const router = useRouter();
   const { state } = useContext(Store);
   const { userInfo } = state;
-  const isPayPal = false;
 
   const [
     { loading, error, order, successPay, loadingDeliver, successDeliver },
@@ -140,7 +139,7 @@ function Order({ params }) {
     }
   }, [order, successPay, successDeliver]);
 
-  const { closeSnackbar, enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
   function createOrder(data, actions) {
     return actions.order

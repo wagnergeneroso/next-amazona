@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Store } from './utils/Store';
+import { Store } from './../utils/Store';
 import {
   Button,
   FormControl,
@@ -14,7 +14,7 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import Layout from './components/Layout';
 import CheckoutWizard from './components/checkoutWizard';
-import useStyles from './utils/styles';
+import useStyles from './../utils/styles';
 import { useSnackbar } from 'notistack';
 
 export default function Payment() {

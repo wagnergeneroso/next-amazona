@@ -17,9 +17,9 @@ import {
   MenuItem,
 } from '@material-ui/core';
 import Cookies from 'js-cookie';
-import useStyles from '../utils/styles';
-import { blue, blueGrey, orange } from '@material-ui/core/colors';
-import { Store } from '../utils/Store';
+import useStyles from '../../utils/styles';
+import { blue } from '@material-ui/core/colors';
+import { Store } from '../../utils/Store';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 

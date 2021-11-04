@@ -1,5 +1,5 @@
-import { isAuth, isAdmin } from '../../utils/auth';
-import { onError } from '../../utils/error';
+import { isAuth, isAdmin } from '../../../utils/auth';
+import { onError } from '../../../utils/error';
 import nextConnect from 'next-connect';
 import multer from 'multer';
 import { v2 as cloudinary } from 'cloudinary';

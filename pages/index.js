@@ -10,12 +10,12 @@ import {
 } from '@material-ui/core';
 import NextLink from 'next/link';
 import Layout from './components/Layout';
-import db from './utils/db';
+import db from './../utils/db';
 import Product from './../models/Product';
 import axios from 'axios';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
-import { Store } from './utils/Store';
+import { Store } from './../utils/Store';
 
 export default function Home(props) {
   const { products } = props;

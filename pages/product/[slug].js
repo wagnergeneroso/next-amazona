@@ -12,12 +12,12 @@ import {
   Card,
   Button,
 } from '@material-ui/core';
-import useStyles from '../utils/styles';
+import useStyles from '../../utils/styles';
 import 'fontsource-roboto';
-import db from '../utils/db';
+import db from '../../utils/db';
 import Product from '../../models/Product';
 import axios from 'axios';
-import { Store } from '../utils/Store';
+import { Store } from '../../utils/Store';
 
 export default function ProductScreen(props) {
   const { state, dispatch } = useContext(Store);
@@ -26,7 +26,7 @@ export default function ProductScreen(props) {
 
   const { product } = props;
   if (!product) {
-    return <div>Product not found ({slug})</div>;
+    return <div>Product not found</div>;
   }
   const addToCartHandler = async () => {
     const { data } = await axios.get(`/api/products/${product._id}`);

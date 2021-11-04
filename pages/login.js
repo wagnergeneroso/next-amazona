@@ -8,15 +8,15 @@ import {
 } from '@material-ui/core';
 import React, { useContext, useEffect } from 'react';
 import Layout from './components/Layout';
-import useStyles from './utils/styles';
+import useStyles from './../utils/styles';
 import NextLink from 'next/link';
 import axios from 'axios';
-import { Store } from './utils/Store';
+import { Store } from './../utils/Store';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
-import { getError } from './utils/error';
+import { getError } from './../utils/error';
 
 export default function Login() {
   const {
@@ -121,7 +121,7 @@ export default function Login() {
             </Button>
           </ListItem>
           <ListItem>
-            Don't have a account? &nbsp;
+            {"Don't have a account?"} &nbsp;
             <NextLink href={`/register?redirect=${redirect || '/'}`} passHref>
               <Link>Register</Link>
             </NextLink>

@@ -1,6 +1,5 @@
 import {
   Button,
-  Link,
   List,
   ListItem,
   TextField,
@@ -8,13 +7,10 @@ import {
 } from '@material-ui/core';
 import React, { useContext, useEffect } from 'react';
 import Layout from './components/Layout';
-import useStyles from './utils/styles';
-import NextLink from 'next/link';
-import axios from 'axios';
-import { Store } from './utils/Store';
+import useStyles from './../utils/styles';
+import { Store } from './../utils/Store';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import { useSnackbar } from 'notistack';
 import { Controller, useForm } from 'react-hook-form';
 import CheckoutWizard from './components/checkoutWizard';
 
@@ -25,7 +21,6 @@ export default function Shipping() {
     formState: { errors },
     setValue,
   } = useForm();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { state, dispatch } = useContext(Store);
   const {
     userInfo,

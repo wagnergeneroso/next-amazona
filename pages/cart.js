@@ -18,7 +18,7 @@ import {
 import dynamic from 'next/dynamic';
 import React, { useContext } from 'react';
 import Layout from './components/Layout';
-import { Store } from './utils/Store';
+import { Store } from './../utils/Store';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
@@ -55,7 +55,7 @@ function CartScreen() {
         <div>
           Cart is empty.{' '}
           <NextLink href="/" passHref>
-            <Link>Let's shopping!</Link>
+            <Link>{"Let's shopping!"}</Link>
           </NextLink>
         </div>
       ) : (
@@ -74,7 +74,7 @@ function CartScreen() {
                 </TableHead>
                 <TableBody>
                   {cartItems.map((item) => (
-                    <TableRow ley={item._id}>
+                    <TableRow key={item._id}>
                       <TableCell>
                         <NextLink href={`/product/${item.slug}`} passHref>
                           <Link>
