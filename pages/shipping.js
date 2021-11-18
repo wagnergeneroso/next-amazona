@@ -6,13 +6,13 @@ import {
   Typography,
 } from '@material-ui/core';
 import React, { useContext, useEffect } from 'react';
-import Layout from './components/Layout';
+import Layout from '../components/Layout';
 import useStyles from './../utils/styles';
 import { Store } from './../utils/Store';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
-import CheckoutWizard from './components/checkoutWizard';
+import CheckoutWizard from '../components/checkoutWizard';
 
 export default function Shipping() {
   const {
@@ -20,18 +20,22 @@ export default function Shipping() {
     control,
     formState: { errors },
     setValue,
+    getValues,
   } = useForm();
   const { state, dispatch } = useContext(Store);
   const {
     userInfo,
     cart: { shippingAddress },
   } = state;
+  const { location } = shippingAddress;
   const router = useRouter();
   const { redirect } = router.query;
   useEffect(() => {
     if (!userInfo) {
       router.push('/login?redirect=/shipping');
     } else {
+      console.log('O que está gravado:');
+      console.log(shippingAddress);
       setValue('fullName', shippingAddress.fullName);
       setValue('address', shippingAddress.address);
       setValue('city', shippingAddress.city);
@@ -41,10 +45,33 @@ export default function Shipping() {
   }, []);
   const classes = useStyles();
   const submitHandler = ({ fullName, address, city, postalCode, country }) => {
-    const data = { fullName, address, city, postalCode, country };
+    const data = { fullName, address, city, postalCode, country, location };
     dispatch({ type: 'SAVE_SHIPPING_ADDRESS', payload: data });
     Cookies.set('shippingAddress', JSON.stringify(data));
     router.push(redirect || '/payment');
+  };
+  const chooseLocationHandler = () => {
+    const fullName = getValues('fullName');
+    const address = getValues('address');
+    const city = getValues('city');
+    const postalCode = getValues('postalCode');
+    const country = getValues('country');
+    dispatch({
+      type: 'SAVE_SHIPPING_ADDRESS',
+      payload: { fullName, address, city, postalCode, country, location },
+    });
+    Cookies.set(
+      'shippingAddress',
+      JSON.stringify({
+        fullName,
+        address,
+        city,
+        postalCode,
+        country,
+        location,
+      })
+    );
+    router.push('/map');
   };
 
   return (
@@ -199,6 +226,18 @@ export default function Shipping() {
                 ></TextField>
               )}
             ></Controller>
+          </ListItem>
+          <ListItem>
+            <Button
+              variant="contained"
+              type="button"
+              onClick={chooseLocationHandler}
+            >
+              Choose on map
+            </Button>
+            <Typography>
+              {location.lat && `${location.lat}, ${location.lat}`}
+            </Typography>
           </ListItem>
           <ListItem>
             <Button variant="contained" type="submit" fullWidth color="primary">

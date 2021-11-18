@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import React, { useContext, useEffect } from 'react';
-import Layout from './components/Layout';
+import Layout from '../components/Layout';
 import useStyles from './../utils/styles';
 import NextLink from 'next/link';
 import axios from 'axios';

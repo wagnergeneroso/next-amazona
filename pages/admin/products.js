@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Store } from '../../utils/Store';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
 import NextLink from 'next/link';
 import { getError } from '../../utils/error';

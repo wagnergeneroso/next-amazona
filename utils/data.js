@@ -26,6 +26,8 @@ const data = {
       numReviews: 10,
       countInStock: 20,
       description: 'A popular shirt',
+      isFeatured: true,
+      featuredImage: '/images/banner1.jpg',
     },
     {
       name: 'Fit Shirt',
@@ -38,6 +40,8 @@ const data = {
       numReviews: 10,
       countInStock: 20,
       description: 'A popular shirt',
+      isFeatured: true,
+      featuredImage: '/images/banner2.jpg',
     },
     {
       name: 'Slim Shirt',

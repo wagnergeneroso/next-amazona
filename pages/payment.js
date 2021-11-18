@@ -12,8 +12,8 @@ import {
 } from '@material-ui/core';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import Layout from './components/Layout';
-import CheckoutWizard from './components/checkoutWizard';
+import Layout from '../components/Layout';
+import CheckoutWizard from '../components/checkoutWizard';
 import useStyles from './../utils/styles';
 import { useSnackbar } from 'notistack';
 
